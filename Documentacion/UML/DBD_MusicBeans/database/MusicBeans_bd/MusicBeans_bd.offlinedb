@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProviderSettings xmlns="http://xmlns.oracle.com/ide/hash">
+   <hash n="dataTypeSettings">
+      <value n="databaseType" v="Oracle Database"/>
+      <value n="databaseVersion" v="12102"/>
+   </hash>
+   <value n="domainName" v=""/>
+   <value n="id" v="bdff679b-54d9-4006-8189-4353c1cd886f"/>
+   <value n="name" v="MusicBeans_bd"/>
+</ProviderSettings>
