@@ -1,7 +1,37 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>PURCHASE</name>
+  <name>LINE_PURCHASE</name>
   <columns>
+    <column>
+      <name>PURCH_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">8</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMERIC</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>ID_LINE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
     <column>
       <name>IDENTIFICATION</name>
       <dataTypeUsage>
@@ -18,16 +48,7 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>P_DATE</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-    </column>
-    <column>
-      <name>CLIENT_ID</name>
+      <name>BAND</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -41,67 +62,31 @@
       </dataTypeUsage>
       <notNull>true</notNull>
     </column>
+    <column>
+      <name>QUANTITY</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">0</default>
+      <notNull>true</notNull>
+    </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>CART_ACCOUNT_FK</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>IDENTIFICATION</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>PURCHASE</name>
-            <schemaName>SCHEMA1</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SCHEMA1</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>ACCOUNT_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>ACCOUNT</name>
-          <schemaName>SCHEMA1</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SCHEMA1</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>PURCHASE_ACCOUNT_FK1</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>CLIENT_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>PURCHASE</name>
-            <schemaName>SCHEMA1</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SCHEMA1</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>ACCOUNT_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>ACCOUNT</name>
-          <schemaName>SCHEMA1</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SCHEMA1</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>PURCHASE_PK</name>
+      <name>LINE_PURCHASE_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>P_DATE</name>
+          <name>PURCH_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>PURCHASE</name>
+            <name>LINE_PURCHASE</name>
             <schemaName>SCHEMA1</schemaName>
             <type>TABLE</type>
           </parent>
@@ -109,19 +94,9 @@
           <type>COLUMN</type>
         </columnID>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>IDENTIFICATION</name>
+          <name>ID_LINE</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>PURCHASE</name>
-            <schemaName>SCHEMA1</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SCHEMA1</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>CLIENT_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>PURCHASE</name>
+            <name>LINE_PURCHASE</name>
             <schemaName>SCHEMA1</schemaName>
             <type>TABLE</type>
           </parent>
@@ -131,9 +106,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>PURCHASE_PK</name>
+        <name>LINE_PURCHASE_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>PURCHASE</name>
+          <name>LINE_PURCHASE</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>
@@ -141,13 +116,23 @@
         <type>INDEX</type>
       </indexID>
     </constraint>
-    <constraint class="oracle.javatools.db.UniqueConstraint">
-      <name>PURCHASE_UK1</name>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>LINE_PURCHASE_ITEM_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>IDENTIFICATION</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>PURCHASE</name>
+            <name>LINE_PURCHASE</name>
+            <schemaName>SCHEMA1</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SCHEMA1</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>BAND</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>LINE_PURCHASE</name>
             <schemaName>SCHEMA1</schemaName>
             <type>TABLE</type>
           </parent>
@@ -156,7 +141,33 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <indexID class="oracle.javatools.db.NameBasedID">
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>ITEM_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>ITEM</name>
+          <schemaName>SCHEMA1</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SCHEMA1</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>LINE_PURCHASE_PURCHASE_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>PURCH_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>LINE_PURCHASE</name>
+            <schemaName>SCHEMA1</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SCHEMA1</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
         <name>PURCHASE_UK1</name>
         <parent class="oracle.javatools.db.NameBasedID">
           <name>PURCHASE</name>
@@ -164,38 +175,20 @@
           <type>TABLE</type>
         </parent>
         <schemaName>SCHEMA1</schemaName>
-        <type>INDEX</type>
-      </indexID>
+        <type>CONSTRAINT</type>
+      </referenceID>
     </constraint>
   </constraints>
   <indexes>
     <index>
-      <name>PURCHASE_PK</name>
+      <name>LINE_PURCHASE_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>P_DATE</expressionSource>
+          <expressionSource>PURCH_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
         <columnExpression>
-          <expressionSource>IDENTIFICATION</expressionSource>
-          <orderType>ASC</orderType>
-        </columnExpression>
-        <columnExpression>
-          <expressionSource>CLIENT_ID</expressionSource>
-          <orderType>ASC</orderType>
-        </columnExpression>
-      </columnExpressions>
-      <indexType>UNIQUE</indexType>
-      <schema>
-        <name>SCHEMA1</name>
-      </schema>
-      <systemGenerated>true</systemGenerated>
-    </index>
-    <index>
-      <name>PURCHASE_UK1</name>
-      <columnExpressions>
-        <columnExpression>
-          <expressionSource>IDENTIFICATION</expressionSource>
+          <expressionSource>ID_LINE</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>
