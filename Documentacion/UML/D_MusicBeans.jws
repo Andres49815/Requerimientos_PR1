@@ -25,6 +25,5 @@
    </list>
    <list n="listOfChildren">
       <hash><url n="URL" path="DBD_MusicBeans/DBD_MusicBeans.jpr"/></hash>
-      <hash><url n="URL" path="UML/UML.jpr"/></hash>
    </list>
 </jws:workspace>
