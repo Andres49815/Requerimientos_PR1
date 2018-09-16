@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login_Singup">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="57dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Music Beans" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User ID"
+                tools:layout_editor_absoluteX="154dp"
+                tools:layout_editor_absoluteY="67dp" />
+
+            <EditText
+                android:id="@+id/TX_userID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="josepa"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="118dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                tools:layout_editor_absoluteX="145dp"
+                tools:layout_editor_absoluteY="203dp" />
+
+            <EditText
+                android:id="@+id/TX_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:text="sipa"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="252dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="104dp"
+            tools:layout_editor_absoluteY="515dp">
+
+            <Button
+                android:id="@+id/BT_singUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sing up"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="544dp" />
+
+            <Button
+                android:id="@+id/BT_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log in"
+                tools:layout_editor_absoluteX="246dp"
+                tools:layout_editor_absoluteY="542dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>
