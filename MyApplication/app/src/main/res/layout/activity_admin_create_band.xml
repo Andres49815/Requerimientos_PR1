@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminCreateBand">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="48dp">
+
+            <TextView
+                android:id="@+id/LB_BandID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Band ID"
+                tools:layout_editor_absoluteX="145dp"
+                tools:layout_editor_absoluteY="203dp" />
+
+            <EditText
+                android:id="@+id/TX_BandID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Band ID"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="118dp" />
+
+            <TextView
+            android:id="@+id/LB_Password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="password"
+            tools:layout_editor_absoluteX="145dp"
+            tools:layout_editor_absoluteY="203dp" />
+
+            <EditText
+                android:id="@+id/TX_Password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="password"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="118dp" />
+
+            <TextView
+                android:id="@+id/LB_BandName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="name"
+                tools:layout_editor_absoluteX="145dp"
+                tools:layout_editor_absoluteY="203dp" />
+
+            <EditText
+                android:id="@+id/TX_BandName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="name"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="118dp" />
+
+            <TextView
+                android:id="@+id/LB_Description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="description"
+                tools:layout_editor_absoluteX="145dp"
+                tools:layout_editor_absoluteY="203dp" />
+
+            <EditText
+                android:id="@+id/TX_Description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="description"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="118dp" />
+<!-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/BT_thumbnailPost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thumbnail" />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/ic_menu_upload_you_tube" />
+
+            </LinearLayout>
+<!-->
+            <Button
+                android:id="@+id/BT_CreateBand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create band" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

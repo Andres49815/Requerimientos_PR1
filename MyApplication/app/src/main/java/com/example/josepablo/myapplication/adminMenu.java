@@ -41,7 +41,9 @@ public class adminMenu extends AppCompatActivity {
         createBand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(adminMenu.this, AdminCreateBand.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
             }
         });
 

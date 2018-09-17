@@ -40,7 +40,9 @@
         <activity android:name=".EventsDisplay" />
         <activity android:name=".Events_item" />
         <activity android:name=".bandsDiscover" />
-        <activity android:name=".bandsDiscover_item"></activity>
+        <activity android:name=".bandsDiscover_item" />
+        <activity android:name=".AdminCreateBand" />
+        <activity android:name=".BandCreateEvent"></activity>
     </application>
 
 </manifest>

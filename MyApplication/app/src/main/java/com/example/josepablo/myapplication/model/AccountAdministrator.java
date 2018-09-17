@@ -44,7 +44,7 @@ public class AccountAdministrator {
     }
 
     // DB Connection
-    private static Connection connectionDB(){
+    public static Connection connectionDB(){
         Connection connection = null;
         try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -71,9 +71,16 @@ public class AccountAdministrator {
 
             statement.executeQuery();
         }
-        catch (SQLException e) {
+        catch (SQLException e) { }
+    }
 
+    // Statement
+    public static void SetStatement(PreparedStatement statement, String ... strings) {
+        try {
+            for (int i = 0; i < strings.length; i++)
+                statement.setString(i + 1, strings[i]);
         }
+        catch (SQLException e) {}
     }
 
 }

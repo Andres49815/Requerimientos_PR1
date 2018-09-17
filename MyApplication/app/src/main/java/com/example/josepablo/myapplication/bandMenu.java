@@ -1,5 +1,6 @@
 package com.example.josepablo.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,7 +35,9 @@ public class bandMenu extends AppCompatActivity {
         Events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(bandMenu.this, BandCreateEvent.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
             }
         });
     }

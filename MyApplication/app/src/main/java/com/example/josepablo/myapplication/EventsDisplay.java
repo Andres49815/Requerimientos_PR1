@@ -48,13 +48,10 @@ public class EventsDisplay extends AppCompatActivity {
         listEvents.setAdapter(adapterForEvents);
         View header = getLayoutInflater().inflate(R.layout.header_list,null);
         listEvents.addHeaderView(header);
-
     }
 
-
-
     private void fillEventsArray(){
-        try{
+        try {
             eventsArray = new Event[calculateEventsAmount()];
             int pos = 0;
             PreparedStatement pst;

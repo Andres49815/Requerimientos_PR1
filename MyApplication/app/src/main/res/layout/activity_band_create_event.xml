@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BandCreateEvent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="48dp">
+
+            <TextView
+                android:id="@+id/LB_Place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Place"
+                tools:layout_editor_absoluteX="145dp"
+                tools:layout_editor_absoluteY="203dp" />
+
+            <EditText
+                android:id="@+id/TX_Place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="place"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="118dp" />
+
+            <TextView
+                android:id="@+id/LB_Details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Details"
+                tools:layout_editor_absoluteX="145dp"
+                tools:layout_editor_absoluteY="203dp" />
+
+            <EditText
+                android:id="@+id/TX_Details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="details"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="118dp" />
+
+            <CalendarView
+                android:id="@+id/CAL_EventDate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </CalendarView>
+
+            <Button
+                android:id="@+id/BT_CreateEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create Event" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
