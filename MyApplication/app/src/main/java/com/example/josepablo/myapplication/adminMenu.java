@@ -48,7 +48,10 @@ public class adminMenu extends AppCompatActivity {
         managePostAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intento = new Intent(adminMenu.this,ManagePosts.class);
+                intento.putExtra("userID","josepa");
+                startActivity(intento);
+                overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
             }
         });
 
@@ -98,21 +101,26 @@ public class adminMenu extends AppCompatActivity {
         eventsAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intento = new Intent(adminMenu.this,EventsDisplay.class);
+                intento.putExtra("eventType","A");
+                startActivity(intento);
+                overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
             }
         });
 
         discoverAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                profileAdmin();
+                Intent intento = new Intent(adminMenu.this,bandsDiscover.class);
+                startActivity(intento);
+                overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
             }
         });
 
         profileAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                profileAdmin();
             }
         });
 

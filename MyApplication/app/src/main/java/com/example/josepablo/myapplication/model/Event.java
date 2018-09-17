@@ -17,5 +17,7 @@ public class Event {
         date = d;
         details = dt;
     }
+
+
 }
 

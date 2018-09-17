@@ -43,7 +43,6 @@ public class postsDisplay extends AppCompatActivity {
         Bundle bundle = intent.getExtras();
         String typeForPosts = (String) bundle.get("typePosts");
 
-
         fillDataPosts(typeForPosts);
 
         Button backToMenu = (Button) findViewById(R.id.backToMenuPosts);
@@ -59,6 +58,8 @@ public class postsDisplay extends AppCompatActivity {
         listView.setAdapter(adaptador);
         View header = getLayoutInflater().inflate(R.layout.header_list,null);
         listView.addHeaderView(header);
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

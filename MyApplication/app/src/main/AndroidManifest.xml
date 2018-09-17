@@ -34,7 +34,13 @@
         <activity android:name=".createPost" />
         <activity android:name=".model.client_list_item" />
         <activity android:name=".clientList" />
-        <activity android:name=".BandNewEvent"></activity>
+        <activity android:name=".BandNewEvent" />
+        <activity android:name=".ManagePosts" />
+        <activity android:name=".model.managePosts_item" />
+        <activity android:name=".EventsDisplay" />
+        <activity android:name=".Events_item" />
+        <activity android:name=".bandsDiscover" />
+        <activity android:name=".bandsDiscover_item"></activity>
     </application>
 
 </manifest>

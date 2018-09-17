@@ -90,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
         switch (AccountAdministrator.userType) {
             case "A":
                 intent = new Intent(MainActivity.this, postsDisplay.class);
-                intent.putExtra("typePosts","A");
                 break;
             case "B":
                 intent = new Intent(MainActivity.this, bandMenu.class);
@@ -102,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 intent = null;
         }
         try {
+            intent.putExtra("typePosts","A");
             Cookie.current_user_ID = AccountAdministrator.actualUser().getUserID();
             Cookie.userType = AccountAdministrator.userType;
             startActivity(intent);
