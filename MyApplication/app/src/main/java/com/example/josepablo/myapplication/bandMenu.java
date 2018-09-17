@@ -1,7 +1,12 @@
 package com.example.josepablo.myapplication;
 
+import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+<<<<<<< HEAD
+=======
+import android.util.EventLog;
+>>>>>>> 905145cc2e0f73520c5834aaf48650c7a9340a62
 import android.view.View;
 import android.widget.Button;
 

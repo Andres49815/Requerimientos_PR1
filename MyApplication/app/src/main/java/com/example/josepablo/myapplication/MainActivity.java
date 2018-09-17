@@ -90,7 +90,10 @@ public class MainActivity extends AppCompatActivity {
         switch (AccountAdministrator.userType) {
             case "A":
                 intent = new Intent(MainActivity.this, postsDisplay.class);
+<<<<<<< HEAD
                 intent.putExtra("typePosts","A");
+=======
+>>>>>>> 905145cc2e0f73520c5834aaf48650c7a9340a62
                 break;
             case "B":
                 intent = new Intent(MainActivity.this, bandMenu.class);
@@ -102,8 +105,11 @@ public class MainActivity extends AppCompatActivity {
                 intent = null;
         }
         try {
+<<<<<<< HEAD
             Cookie.current_user_ID = AccountAdministrator.actualUser().getUserID();
             Cookie.userType = AccountAdministrator.userType;
+=======
+>>>>>>> 905145cc2e0f73520c5834aaf48650c7a9340a62
             startActivity(intent);
             overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
         }
