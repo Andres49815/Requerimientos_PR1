@@ -18,7 +18,4 @@ public class Event {
         details = dt;
     }
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 905145cc2e0f73520c5834aaf48650c7a9340a62
