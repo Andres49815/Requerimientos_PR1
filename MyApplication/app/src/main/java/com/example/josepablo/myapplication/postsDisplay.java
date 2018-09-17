@@ -11,11 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.josepablo.myapplication.model.Cookie;
 import com.example.josepablo.myapplication.model.Titular;
 
 import java.sql.Connection;
@@ -27,11 +29,9 @@ import java.util.concurrent.ExecutionException;
 
 public class postsDisplay extends AppCompatActivity {
 
-
     public Titular[] data;
 
     public ListView listView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,15 @@ public class postsDisplay extends AppCompatActivity {
         fillDataPosts();
 
         listView = (ListView) findViewById(R.id.Lista);
+
+        Button backToMenu = (Button) findViewById(R.id.backToMenuPosts);
+        backToMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                specifyMenu();
+            }
+        });
+
 
         Adaptador adaptador = new Adaptador(this, data);
 
@@ -63,6 +72,25 @@ public class postsDisplay extends AppCompatActivity {
     }
 
 
+    private void specifyMenu(){
+        if(Cookie.userType.compareTo(Character.toString('A')) == 0) {
+            Intent intento = new Intent(postsDisplay.this,adminMenu.class);
+            startActivity(intento);
+            overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
+        }
+
+        else if(Cookie.userType.compareTo(Character.toString('B')) == 0) {
+            Intent intento = new Intent(postsDisplay.this,bandMenu.class);
+            startActivity(intento);
+            overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
+        }
+        else {
+            Intent intento = new Intent(postsDisplay.this, clientMenu.class);
+            startActivity(intento);
+            overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
+        }
+    }
+
     private void fillDataPosts(){
         try{
             PreparedStatement pst=conectionDB().prepareStatement("select count(*) cont from post");
@@ -83,7 +111,7 @@ public class postsDisplay extends AppCompatActivity {
         try{
             data = new Titular[count];
             int pos = 0;
-            PreparedStatement pst=conectionDB().prepareStatement("select * from post");
+            PreparedStatement pst= conectionDB().prepareStatement("select * from post");
             ResultSet rs = pst.executeQuery();
 
             while(rs.next()){
@@ -101,15 +129,22 @@ public class postsDisplay extends AppCompatActivity {
 
     }
 
+    private String subString(String postContent){
+
+        if(postContent.length() > 100){
+            postContent = postContent.substring(0,100) ;
+        }
+        return postContent + "...";
+    }
 
     /*Adapter for the list of posts*/
-    class Adaptador extends ArrayAdapter<Titular>{
+    private class Adaptador extends ArrayAdapter<Titular>{
 
         public Adaptador(@NonNull Context context, Titular[] datos) {
             super(context, R.layout.activity_item_posts, datos);
         }
 
-        public View getView(int pos, View converView, ViewGroup parent){
+        public View getView(final int pos, View converView, ViewGroup parent){
             LayoutInflater inflater = LayoutInflater.from(getContext());
             View item = inflater.inflate(R.layout.activity_item_posts,null);
 
@@ -117,14 +152,22 @@ public class postsDisplay extends AppCompatActivity {
             lblTitulo.setText( data[pos].getTitle());
 
             TextView lblContent = (TextView) item.findViewById(R.id.lblContent);
-            lblContent.setText( data[pos].getTitle());
+            lblContent.setText( subString(data[pos].getContent()));
 
             TextView lblPublisher = (TextView) item.findViewById(R.id.lblPublisher);
-            lblPublisher.setText( data[pos].getContent());
+            lblPublisher.setText( data[pos].getPublisher());
 
             ImageView thumNail = (ImageView) item.findViewById(R.id.thumbNail);
             thumNail.setImageResource(data[pos].getThumbNail());
-
+/*
+            Button botonDel = (Button) item.findViewById(R.id.postButtonTEST);
+            botonDel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getApplicationContext(),"titulo = "+data[pos].getTitle(), Toast.LENGTH_SHORT).show();
+                }
+            });
+*/
             return item;
         }
     }

@@ -46,6 +46,14 @@ public class noticiaExpandida extends AppCompatActivity {
         setContentView(R.layout.activity_noticia_expandida);
         Button commentOnPost = (Button) findViewById(R.id.BT_makeComment) ;
 
+        Button backToMenu = (Button) findViewById(R.id.backToMenuPosts);
+        backToMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                specifyMenu();
+            }
+        });
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         this.postID = (int) bundle.get("postID");
@@ -76,6 +84,25 @@ public class noticiaExpandida extends AppCompatActivity {
         });
     }
 
+
+    private void specifyMenu(){
+        if(Cookie.userType.compareTo(Character.toString('A')) == 0) {
+            Intent intento = new Intent(noticiaExpandida.this,adminMenu.class);
+            startActivity(intento);
+            overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
+        }
+
+        else if(Cookie.userType.compareTo(Character.toString('B')) == 0) {
+            Intent intento = new Intent(noticiaExpandida.this,bandMenu.class);
+            startActivity(intento);
+            overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
+        }
+        else {
+            Intent intento = new Intent(noticiaExpandida.this, clientMenu.class);
+            startActivity(intento);
+            overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
+        }
+    }
 
     private void addComentToPost(String commentTyped){
         try{
@@ -161,7 +188,7 @@ public class noticiaExpandida extends AppCompatActivity {
 }
 
     /*Adapter for the list of posts*/
-    class AdapterForComments extends ArrayAdapter<comment> {
+    private class AdapterForComments extends ArrayAdapter<comment> {
 
         public AdapterForComments(@NonNull Context context, comment[] commentsArray) {
             super(context, R.layout.activity_item_comment, commentsArray);

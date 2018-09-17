@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 String mensaje = rs.getString("typeAccount");
                 Toast.makeText(getApplicationContext(),mensaje, Toast.LENGTH_SHORT).show();
                 Cookie.current_user_ID = user;
+                Cookie.userType = mensaje;
                 Intent intento = new Intent(MainActivity.this,postsDisplay.class);
                 startActivity(intento);
                 overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);

@@ -25,11 +25,10 @@
             android:id="@+id/lblContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:text="Content"
             android:textAlignment="center"
-            android:textSize="25sp"
-            />
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/lblPublisher"
@@ -47,7 +46,6 @@
             android:src="@drawable/newspaper"
             android:layout_gravity="center"
             />
-
 
     </LinearLayout>
 

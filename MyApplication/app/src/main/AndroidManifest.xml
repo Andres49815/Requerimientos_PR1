@@ -26,7 +26,14 @@
         <activity android:name=".postsDisplay" />
         <activity android:name=".singUpDisplay" />
         <activity android:name=".model.item_posts" />
-        <activity android:name=".model.item_comment"></activity>
+        <activity android:name=".model.item_comment" />
+        <activity android:name=".adminMenu" />
+        <activity android:name=".AccountProfile" />
+        <activity android:name=".bandMenu" />
+        <activity android:name=".clientMenu" />
+        <activity android:name=".createPost" />
+        <activity android:name=".model.client_list_item" />
+        <activity android:name=".clientList"></activity>
     </application>
 
 </manifest>
