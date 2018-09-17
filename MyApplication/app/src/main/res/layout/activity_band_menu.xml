@@ -6,4 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".bandMenu">
 
+    <LinearLayout
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <Button
+            android:id="@+id/Shop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shop"
+            android:layout_marginLeft="50dp"/>
+
+        <Button
+            android:id="@+id/News"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="News"
+            android:layout_marginLeft="50dp"/>
+
+        <Button
+            android:id="@+id/Events"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Events"
+            android:layout_marginLeft="50dp"/>
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

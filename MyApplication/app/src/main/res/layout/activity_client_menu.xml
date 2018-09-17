@@ -6,4 +6,96 @@
     android:layout_height="match_parent"
     tools:context=".clientMenu">
 
+    <LinearLayout
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/viewFavoriteBands"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorite bands"
+                android:layout_marginLeft="75dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/postsClient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Posts"
+                android:layout_marginLeft="50dp"/>
+
+
+            <Button
+                android:id="@+id/StoreClient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Store"
+                android:layout_marginLeft="100dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/eventsClient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Events"
+                android:layout_marginLeft="50dp"/>
+
+
+            <Button
+                android:id="@+id/discoverClient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Discover"
+                android:layout_marginLeft="93dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/profileClient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile client"
+                android:layout_marginLeft="50dp"/>
+
+
+            <Button
+                android:id="@+id/LogoutClient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log out"
+                android:layout_marginLeft="95dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

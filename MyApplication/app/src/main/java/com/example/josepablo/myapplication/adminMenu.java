@@ -21,6 +21,8 @@ public class adminMenu extends AppCompatActivity {
 
         Button clientList = (Button) findViewById(R.id.clientList);
 
+        Button bandList = (Button) findViewById(R.id.bandList);
+
         Button createPostAdmin = (Button) findViewById(R.id.createPostAdmin);
 
         Button postsAdmin = (Button) findViewById(R.id.postsAdmin);
@@ -55,10 +57,22 @@ public class adminMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intento = new Intent(adminMenu.this,clientList.class);
+                intento.putExtra("typeAccount","C");
                 startActivity(intento);
                 overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
             }
         });
+
+        bandList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intento = new Intent(adminMenu.this,clientList.class);
+                intento.putExtra("typeAccount","B");
+                startActivity(intento);
+                overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
+            }
+        });
+
 
         createPostAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,6 +135,7 @@ public class adminMenu extends AppCompatActivity {
     private void posts(){
         Intent intento = new Intent(adminMenu.this,postsDisplay.class);
         startActivity(intento);
+        intento.putExtra("typePosts","A");
         overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
     }
 

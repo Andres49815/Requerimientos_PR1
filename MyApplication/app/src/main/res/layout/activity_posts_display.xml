@@ -6,12 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".postsDisplay">
 
-    <Button
-        android:id="@+id/backToMenuPosts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back to menu"
-        />
+
 
     <LinearLayout
         android:layout_width="368dp"
@@ -25,6 +20,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/backToMenuPosts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back to menu"
+            />
+
+        <Spinner
+            android:id="@+id/spTypesPosts"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"/>
+
 
         <TextView
             android:layout_width="match_parent"

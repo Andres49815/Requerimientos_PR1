@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.josepablo.myapplication.model.AccountAdministrator;
 import com.example.josepablo.myapplication.model.Cookie;
 
 import java.sql.Connection;
@@ -44,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String user = ((EditText) findViewById(R.id.TX_userID)).getText().toString();
                 String password = ((EditText) findViewById(R.id.TX_password)).getText().toString();
-                verifyUser(user, password);
+
+                AccountAdministrator.LogIn(user, password);
+                RedirectToView();
             }
         });
     }
@@ -60,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             ResultSet rs = pst.executeQuery();
             rs.next();
 
-            if(rs.getString("typeAccount") != null){
+            if(rs.getString("typeAccount") != null) {
                 String mensaje = rs.getString("typeAccount");
                 Toast.makeText(getApplicationContext(),mensaje, Toast.LENGTH_SHORT).show();
                 Cookie.current_user_ID = user;
@@ -69,13 +72,42 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intento);
                 overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
             }
-            else{
+            else {
                 Toast.makeText(getApplicationContext(),"Not on DB", Toast.LENGTH_SHORT).show();
             }
 
         }
 
         catch (SQLException e){
+            Toast.makeText(getApplicationContext(),"Not on DB", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // REDIRECT TO VIEW
+    private void RedirectToView() {
+        Intent intent;
+
+        switch (AccountAdministrator.userType) {
+            case "A":
+                intent = new Intent(MainActivity.this, postsDisplay.class);
+                intent.putExtra("typePosts","A");
+                break;
+            case "B":
+                intent = new Intent(MainActivity.this, bandMenu.class);
+                break;
+            case "C":
+                intent = null;
+                break;
+            default:
+                intent = null;
+        }
+        try {
+            Cookie.current_user_ID = AccountAdministrator.actualUser().getUserID();
+            Cookie.userType = AccountAdministrator.userType;
+            startActivity(intent);
+            overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
+        }
+        catch (Exception e) {
             Toast.makeText(getApplicationContext(),"Not on DB", Toast.LENGTH_SHORT).show();
         }
     }

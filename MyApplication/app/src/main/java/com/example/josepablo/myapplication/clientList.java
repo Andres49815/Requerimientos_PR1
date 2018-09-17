@@ -42,7 +42,11 @@ public class clientList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_list);
 
-        fillClientList();
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        String typeForAccount = (String) bundle.get("typeAccount");
+
+        fillClientList(typeForAccount);
         ListView clientList = (ListView) findViewById(R.id.listClientListView);
 
         clientListAdapter  clientListAdapter = new clientListAdapter(this, clientsArray);
@@ -63,11 +67,12 @@ public class clientList extends AppCompatActivity {
     }
 
 
-    private int getClientsAmount(){
+    private int getClientsAmount(String typeAccount){
         int postCount = 0;
         try{
             PreparedStatement pst=conectionDB().prepareStatement("select count(*) cont from " +
-                    "account where typeAccount = 'C' ");
+                    "account where typeAccount = ? ");
+            pst.setString(1,typeAccount);
             ResultSet rs = pst.executeQuery();
             rs.next();
             postCount = rs.getInt("cont");
@@ -80,12 +85,13 @@ public class clientList extends AppCompatActivity {
     }
 
 
-    private void fillClientList(){
+    private void fillClientList(String typeAccount){
         try{
 
-            clientsArray = new UserAccount[getClientsAmount()];
+            clientsArray = new UserAccount[getClientsAmount(typeAccount)];
 
-            PreparedStatement pst=conectionDB().prepareStatement("select * from account where typeAccount = 'C'");
+            PreparedStatement pst=conectionDB().prepareStatement("select * from account where typeAccount = ?");
+            pst.setString(1,typeAccount);
             ResultSet rs = pst.executeQuery();
 
             int pos = 0;
@@ -119,6 +125,24 @@ public class clientList extends AppCompatActivity {
         return conexion;
     }
 
+
+    public void deleteClientByID(String userID){
+        try{
+            PreparedStatement pst=conectionDB().prepareStatement("delete from account where ID = ?");
+            pst.setString(1,userID);
+            pst.executeUpdate();
+            Intent intento = new Intent(clientList.this,postsDisplay.class);
+            startActivity(intento);
+            overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
+        }
+        catch (SQLException e){
+            Toast.makeText(getApplicationContext(),e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        catch (Exception e){
+            Toast.makeText(getApplicationContext(),e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
     /*Class for adapter and shit*/
     class clientListAdapter extends ArrayAdapter<UserAccount> {
 
@@ -146,7 +170,7 @@ public class clientList extends AppCompatActivity {
             botonDel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getApplicationContext(),"Name = "+ clientsArray[pos].getName(), Toast.LENGTH_SHORT).show();
+                    deleteClientByID(clientsArray[pos].getUserID());
                 }
             });
 
@@ -155,3 +179,5 @@ public class clientList extends AppCompatActivity {
 
     }
 }
+
+

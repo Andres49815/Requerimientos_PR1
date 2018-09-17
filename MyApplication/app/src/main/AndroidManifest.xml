@@ -33,7 +33,8 @@
         <activity android:name=".clientMenu" />
         <activity android:name=".createPost" />
         <activity android:name=".model.client_list_item" />
-        <activity android:name=".clientList"></activity>
+        <activity android:name=".clientList" />
+        <activity android:name=".BandNewEvent"></activity>
     </application>
 
 </manifest>

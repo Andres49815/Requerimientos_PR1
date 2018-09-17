@@ -17,13 +17,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+
             <Button
-                android:id="@+id/createBand"
+                android:id="@+id/profileAdmin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create Band"
+                android:text="Profile"
                 android:layout_marginLeft="50dp"/>
-
 
             <Button
                 android:id="@+id/managePostAdmin"
@@ -47,15 +47,15 @@
                 android:text="Client list"
                 android:layout_marginLeft="50dp"/>
 
-
             <Button
-                android:id="@+id/createPostAdmin"
+                android:id="@+id/bandList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create post"
-                android:layout_marginLeft="75dp"/>
+                android:text="Bands list"
+                android:layout_marginLeft="50dp"/>
 
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_marginTop="25dp"
@@ -110,21 +110,29 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/profileAdmin"
+                android:id="@+id/createBand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Profile"
+                android:text="Create Band"
                 android:layout_marginLeft="50dp"/>
 
 
             <Button
-                android:id="@+id/LogoutAdmin"
+                android:id="@+id/createPostAdmin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Log out"
-                android:layout_marginLeft="95dp"/>
+                android:text="Create post"
+                android:layout_marginLeft="75dp"/>
+
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/LogoutAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log out"
+            android:layout_marginLeft="95dp"/>
 
     </LinearLayout>
 
