@@ -56,6 +56,10 @@ public class bandsDiscover extends AppCompatActivity {
                 startActivity(intento);
                 overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
                 */
+                Intent intent = new Intent(bandsDiscover.this, ClientBandProfile.class);
+                intent.putExtra("bandID", bandsForDiscover[position - 1].getUserID());
+                startActivity(intent);
+                overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
             }
         });
 
