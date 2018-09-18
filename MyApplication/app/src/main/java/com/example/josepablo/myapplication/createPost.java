@@ -71,6 +71,7 @@ public class createPost extends AppCompatActivity {
             pst.executeUpdate();
             Toast.makeText(getApplicationContext(),"Created", Toast.LENGTH_SHORT).show();
             Intent intento = new Intent(createPost.this, postsDisplay.class);
+            intento.putExtra("typePosts","A");
             startActivity(intento);
             overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
         }

@@ -144,8 +144,8 @@ public class adminMenu extends AppCompatActivity {
 
     private void posts(){
         Intent intento = new Intent(adminMenu.this,postsDisplay.class);
-        startActivity(intento);
         intento.putExtra("typePosts","A");
+        startActivity(intento);
         overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
     }
 

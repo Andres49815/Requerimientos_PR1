@@ -38,7 +38,11 @@ public class bandsDiscover extends AppCompatActivity {
         setContentView(R.layout.activity_bands_discover);
 
 
-        fillBandsDiscover();
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        String typeLayout = (String) bundle.get("typeLayout");
+
+        fillBandsDiscover(typeLayout);
         ListView listDiscover = (ListView) findViewById(R.id.listDiscover);
 
         AdapterForDiscover adapterForDiscover = new AdapterForDiscover(this,bandsForDiscover);
@@ -49,13 +53,6 @@ public class bandsDiscover extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(),bandsForDiscover[position].getName(),Toast.LENGTH_SHORT).show();
-                //AQUI VA LO SUYO!!!
-                /*
-                Intent intento = new Intent(postsDisplay.this,noticiaExpandida.class);
-                intento.putExtra("postID",data[i-1].getPostID());
-                startActivity(intento);
-                overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
-                */
                 Intent intent = new Intent(bandsDiscover.this, ClientBandProfile.class);
                 intent.putExtra("bandID", bandsForDiscover[position - 1].getUserID());
                 startActivity(intent);
@@ -65,11 +62,36 @@ public class bandsDiscover extends AppCompatActivity {
 
     }
 
-    private void fillBandsDiscover(){
+
+    private String createsQuery(String typeLayout){//REvisar la consulta de obando
+        if(typeLayout.compareTo("A") == 0) {
+            return "select * from account where typeAccount = 'B'";//PARA ESTA
+        }
+        else {
+            return  "select * from account inner join favorites ";
+        }
+    }
+
+    /*
+    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+    * */
+
+
+    private void fillBandsDiscover(String typeLayout){
         try{
             int pos = 0;
-            bandsForDiscover = new UserAccount[ammountOfBands()];
-            PreparedStatement pst = conectionDB().prepareStatement( "select * from account where typeAccount = 'B'" );
+            bandsForDiscover = new UserAccount[ammountOfBands(typeLayout)];
+            PreparedStatement pst = conectionDB().prepareStatement(
+                    "VER ESTo"
+            );
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
                 bandsForDiscover[pos] = new UserAccount(rs.getString("ID"),
@@ -79,14 +101,14 @@ public class bandsDiscover extends AppCompatActivity {
                 pos++;
             }
         }
-        catch (SQLException e){
+        catch (SQLException e) {
             Toast.makeText(getApplicationContext(),e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
-    private int ammountOfBands(){
+    private int ammountOfBands(String typeLayout) {
         int postCount = 0;
-        try{
+        try {
             PreparedStatement pst = conectionDB().prepareStatement( "select count(*) cont from account where typeAccount = 'B'" );
             ResultSet rs = pst.executeQuery();
             rs.next();
@@ -131,7 +153,7 @@ public class bandsDiscover extends AppCompatActivity {
     /*Data base connection*/
     public Connection conectionDB(){
         Connection conexion = null;
-        try{
+        try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
