@@ -21,14 +21,18 @@ public class bandMenu extends AppCompatActivity {
         Shop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(bandMenu.this, ClientBandProfile.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
             }
         });
 
         News.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(bandMenu.this, createPost.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
             }
         });
 

@@ -42,7 +42,8 @@
         <activity android:name=".bandsDiscover" />
         <activity android:name=".bandsDiscover_item" />
         <activity android:name=".AdminCreateBand" />
-        <activity android:name=".BandCreateEvent"></activity>
+        <activity android:name=".BandCreateEvent" />
+        <activity android:name=".ClientBandProfile"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClientBandProfile">\
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="48dp">
+
+            <TextView
+                android:id="@+id/LB_BandName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NAME"
+                tools:layout_editor_absoluteX="145dp"
+                tools:layout_editor_absoluteY="203dp"
+                android:textSize="39dp" />
+
+            <TextView
+                android:id="@+id/LB_Details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Details"
+                tools:layout_editor_absoluteX="145dp"
+                tools:layout_editor_absoluteY="203dp" />
+
+            <TextView
+                android:id="@+id/LB_Score"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="SCORE" />
+
+            <NumberPicker
+                android:id="@+id/NP_Score"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </NumberPicker>
+
+            <Button
+                android:id="@+id/BT_Score"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Set Score" />
+
+            <Button
+                android:id="@+id/BT_Favorite"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Favorite" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

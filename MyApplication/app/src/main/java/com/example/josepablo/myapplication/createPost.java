@@ -27,8 +27,6 @@ public class createPost extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_post);
 
-
-
         Button backToMenuCreatePost = (Button) findViewById(R.id.backToMenuCreatePost);
         backToMenuCreatePost.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +34,6 @@ public class createPost extends AppCompatActivity {
                 specifyMenu();
             }
         });
-
 
         final Button createPost = (Button) findViewById(R.id.createPost);
 
@@ -64,7 +61,6 @@ public class createPost extends AppCompatActivity {
         }
     }
 
-
     private void createThePost(String theTitle, String theContent){
         try{
             PreparedStatement pst=conectionDB().prepareStatement("insert into post values(?,?,?,?,null)");
@@ -91,7 +87,7 @@ public class createPost extends AppCompatActivity {
         }
 
         else if(Cookie.userType.compareTo(Character.toString('B')) == 0) {
-            Intent intento = new Intent(createPost.this,bandMenu.class);
+            Intent intento = new Intent(createPost.this, bandMenu.class);
             startActivity(intento);
             overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
         }
@@ -101,7 +97,6 @@ public class createPost extends AppCompatActivity {
             overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
         }
     }
-
 
     /*Data base connection*/
     public Connection conectionDB(){
