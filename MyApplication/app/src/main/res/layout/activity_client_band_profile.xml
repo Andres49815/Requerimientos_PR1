@@ -71,6 +71,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Events" />
+
+            <Button
+                android:id="@+id/BT_Shop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Shop" />
         </LinearLayout>
 
     </LinearLayout>
