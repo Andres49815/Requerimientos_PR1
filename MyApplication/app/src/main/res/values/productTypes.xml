@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="productTypes_array">
+        <item>Shirt</item>
+        <item>Disc</item>
+        <item>Song</item>
+        <item>Coffee Cup</item>
+        <item>Pants or Short</item>
+        <item>Hat</item>
+        <item>Album</item>
+        <item>Others</item>
+    </string-array>
+</resources>

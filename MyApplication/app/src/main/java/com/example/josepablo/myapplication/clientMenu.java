@@ -41,7 +41,9 @@ public class clientMenu extends AppCompatActivity {
         StoreClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(clientMenu.this, ClientShop.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
             }
         });
 

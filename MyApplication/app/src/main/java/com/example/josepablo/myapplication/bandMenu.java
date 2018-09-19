@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.josepablo.myapplication.model.Cookie;
+
 public class bandMenu extends AppCompatActivity {
 
     @Override
@@ -21,7 +23,8 @@ public class bandMenu extends AppCompatActivity {
         Shop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(bandMenu.this, ClientBandProfile.class);
+                Intent intent = new Intent(bandMenu.this, BandShop.class);
+                intent.putExtra("userID", Cookie.current_user_ID);
                 startActivity(intent);
                 overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
             }
