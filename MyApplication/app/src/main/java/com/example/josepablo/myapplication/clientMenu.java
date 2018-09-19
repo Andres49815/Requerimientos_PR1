@@ -33,7 +33,10 @@ public class clientMenu extends AppCompatActivity {
         viewFavoriteBands.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(clientMenu.this, ClientBandProfile.class);
+                intent.putExtra("bandID", "Ramones");
+                startActivity(intent);
+                overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
             }
         });
 
@@ -62,7 +65,10 @@ public class clientMenu extends AppCompatActivity {
         eventsClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intento = new Intent(clientMenu.this,EventsDisplay.class);
+                intento.putExtra("eventType","A");
+                startActivity(intento);
+                overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
             }
         });
 
@@ -87,7 +93,6 @@ public class clientMenu extends AppCompatActivity {
         startActivity(intento);
         overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
     }
-
 
     private void posts() {
         Intent intento = new Intent(clientMenu.this, postsDisplay.class);

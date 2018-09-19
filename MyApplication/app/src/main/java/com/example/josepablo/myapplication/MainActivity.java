@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(MainActivity.this, bandMenu.class);
                 break;
             case "C":
-                intent = null;
+                intent = new Intent(MainActivity.this, postsDisplay.class);
                 break;
             default:
                 intent = null;

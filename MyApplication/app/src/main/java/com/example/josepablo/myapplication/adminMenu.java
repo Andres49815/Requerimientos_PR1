@@ -151,6 +151,7 @@ public class adminMenu extends AppCompatActivity {
 
     private void discover(){ //Change to discover activity
         Intent intento = new Intent(adminMenu.this,MainActivity.class);
+        intento.putExtra("typeLayout","B");
         startActivity(intento);
         overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
     }

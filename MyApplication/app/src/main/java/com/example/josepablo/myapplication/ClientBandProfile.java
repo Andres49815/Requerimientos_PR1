@@ -27,6 +27,7 @@ public class ClientBandProfile extends AppCompatActivity {
 
         NumberPicker picker = (NumberPicker) findViewById(R.id.NP_Score);
         Button AddFavorite = (Button) findViewById(R.id.BT_Favorite);
+        Button Posts = (Button) findViewById(R.id.BT_Posts);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -40,6 +41,17 @@ public class ClientBandProfile extends AppCompatActivity {
         AddFavorite.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), ":::" + bandID, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        Posts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ClientBandProfile.this, postsDisplay.class);
+                intent.putExtra("typePosts", bandID);
+                startActivity(intent);
+                overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
+
             }
         });
     }

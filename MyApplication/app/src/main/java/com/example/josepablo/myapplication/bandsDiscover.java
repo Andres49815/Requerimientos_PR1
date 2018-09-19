@@ -28,8 +28,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class bandsDiscover extends AppCompatActivity {
-
-
     UserAccount[] bandsForDiscover;
 
     @Override
@@ -64,40 +62,27 @@ public class bandsDiscover extends AppCompatActivity {
 
 
     private String createsQuery(String typeLayout){//REvisar la consulta de obando
-        if(typeLayout.compareTo("A") == 0) {
-            return "select * from account where typeAccount = 'B'";//PARA ESTA
+        if(typeLayout.compareTo("B") == 0) {
+            return "select * from account where typeAccount = ?";//PARA ESTA
         }
         else {
-            return  "select * from account inner join favorites ";
+            return  "select * from account a inner join favorites f on(a.ID = f.clientID) where a.ID = ?";
         }
     }
-
-    /*
-    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-    * TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-    * */
 
 
     private void fillBandsDiscover(String typeLayout){
         try{
             int pos = 0;
             bandsForDiscover = new UserAccount[ammountOfBands(typeLayout)];
-            PreparedStatement pst = conectionDB().prepareStatement(
-                    "VER ESTo"
-            );
+            PreparedStatement pst = conectionDB().prepareStatement(createsQuery(typeLayout));
+            pst.setString(1,typeLayout);
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
                 bandsForDiscover[pos] = new UserAccount(rs.getString("ID"),
                         rs.getString("userName"),
                         rs.getString("userLastName"),
-                        R.drawable.newspaper); //Imagenes
+                        R.drawable.band); //Imagenes
                 pos++;
             }
         }
@@ -109,7 +94,14 @@ public class bandsDiscover extends AppCompatActivity {
     private int ammountOfBands(String typeLayout) {
         int postCount = 0;
         try {
-            PreparedStatement pst = conectionDB().prepareStatement( "select count(*) cont from account where typeAccount = 'B'" );
+            PreparedStatement pst;
+            if(typeLayout.compareTo("B") == 0){
+                pst = conectionDB().prepareStatement( "select count(*) cont from account where typeAccount = 'B'" );
+            }
+            else{
+                pst =  conectionDB().prepareStatement("select (*) cont from account a inner join favorites f on(a.ID = f.clientID) where a.ID = ?");
+            }
+            pst.setString(1,typeLayout);
             ResultSet rs = pst.executeQuery();
             rs.next();
             postCount = rs.getInt("cont");
@@ -140,7 +132,7 @@ public class bandsDiscover extends AppCompatActivity {
                 placeEvent.setText( bandsForDiscover[pos].getLastName());
 
                 ImageView detailsEvent = (ImageView) item.findViewById(R.id.profilePicBand);
-                detailsEvent.setImageResource( R.drawable.newpost );
+                detailsEvent.setImageResource( R.drawable.band );
                 return item;
             }
             catch(Exception e){

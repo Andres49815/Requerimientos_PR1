@@ -36,6 +36,8 @@ public class clientList extends AppCompatActivity {
 
 
     UserAccount[] clientsArray;
+    int imageorDisplay;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,10 @@ public class clientList extends AppCompatActivity {
         clientListAdapter  clientListAdapter = new clientListAdapter(this, clientsArray);
 
         clientList.setAdapter(clientListAdapter);
+        imageorDisplay= R.drawable.man;
+        if (typeForAccount.compareTo("B") == 0) {
+            imageorDisplay = R.drawable.band;
+        }
 
         View header = getLayoutInflater().inflate(R.layout.header_list,null);
 
@@ -74,6 +80,7 @@ public class clientList extends AppCompatActivity {
                     "account where typeAccount = ? ");
             pst.setString(1,typeAccount);
             ResultSet rs = pst.executeQuery();
+
             rs.next();
             postCount = rs.getInt("cont");
 
@@ -99,7 +106,7 @@ public class clientList extends AppCompatActivity {
                 clientsArray[pos] = new UserAccount(rs.getString("ID"),
                         rs.getString("userName"),
                         rs.getString("userLastName"),
-                        R.drawable.newspaper); //Imagenes
+                        imageorDisplay); //Imagenes
                 pos++;
             }
         }
@@ -164,7 +171,7 @@ public class clientList extends AppCompatActivity {
             LastNameOnClientList.setText( clientsArray[pos].getLastName());
 
             ImageView profilePicClientOnList = (ImageView) item.findViewById(R.id.profilePicClientOnList);
-            profilePicClientOnList.setImageResource( clientsArray[pos].getProfilePic());
+            profilePicClientOnList.setImageResource( imageorDisplay);
 
             Button botonDel = (Button) item.findViewById(R.id.deleteButtonOnClientList);
             botonDel.setOnClickListener(new View.OnClickListener() {
