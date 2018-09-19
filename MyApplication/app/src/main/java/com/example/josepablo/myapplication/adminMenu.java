@@ -105,6 +105,7 @@ public class adminMenu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intento = new Intent(adminMenu.this,EventsDisplay.class);
                 intento.putExtra("eventType","A");
+                intento.putExtra("userID",Cookie.current_user_ID);
                 startActivity(intento);
                 overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
             }
@@ -114,6 +115,7 @@ public class adminMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intento = new Intent(adminMenu.this,bandsDiscover.class);
+                intento.putExtra("typeLayout","B");
                 startActivity(intento);
                 overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
             }

@@ -63,8 +63,14 @@
             <Button
                 android:id="@+id/BT_Posts"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:text="News" />
 
+            <Button
+                android:id="@+id/BT_Events"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Events" />
         </LinearLayout>
 
     </LinearLayout>

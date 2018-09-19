@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.josepablo.myapplication.model.AccountAdministrator;
+import com.example.josepablo.myapplication.model.Cookie;
+import com.example.josepablo.myapplication.model.Event;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,6 +30,7 @@ public class ClientBandProfile extends AppCompatActivity {
         NumberPicker picker = (NumberPicker) findViewById(R.id.NP_Score);
         Button AddFavorite = (Button) findViewById(R.id.BT_Favorite);
         Button Posts = (Button) findViewById(R.id.BT_Posts);
+        Button Events = (Button) findViewById(R.id.BT_Events);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -52,6 +55,15 @@ public class ClientBandProfile extends AppCompatActivity {
                 startActivity(intent);
                 overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
 
+            }
+        });
+
+        Events.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                Intent intento = new Intent(ClientBandProfile.this, EventsDisplay.class);
+                intento.putExtra("eventType", Cookie.current_user_ID);
+                startActivity(intento);
+                overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
             }
         });
     }

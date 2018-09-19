@@ -26,15 +26,13 @@ public class clientMenu extends AppCompatActivity {
 
         Button discoverClient = (Button) findViewById(R.id.discoverClient);
 
-        Button profileClient = (Button) findViewById(R.id.profileClient);
-
         Button LogoutClient = (Button) findViewById(R.id.LogoutClient);
 
         viewFavoriteBands.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(clientMenu.this, ClientBandProfile.class);
-                intent.putExtra("bandID", "Ramones");
+                Intent intent = new Intent(clientMenu.this, bandsDiscover.class);
+                intent.putExtra("typeLayout", Cookie.current_user_ID);
                 startActivity(intent);
                 overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
             }
@@ -50,7 +48,10 @@ public class clientMenu extends AppCompatActivity {
         discoverClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createPost();
+                Intent intento = new Intent(clientMenu.this,bandsDiscover.class);
+                intento.putExtra("typeLayout","B");
+                startActivity(intento);
+                overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
             }
         });
 
@@ -67,17 +68,13 @@ public class clientMenu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intento = new Intent(clientMenu.this,EventsDisplay.class);
                 intento.putExtra("eventType","A");
+                intento.putExtra("userID",Cookie.current_user_ID);
                 startActivity(intento);
                 overridePendingTransition(R.anim.animacion,R.anim.animacioncontraria);
             }
         });
 
-        profileClient.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
 
         LogoutClient.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,11 +85,6 @@ public class clientMenu extends AppCompatActivity {
 
     }
 
-    private void createPost() {
-        Intent intento = new Intent(clientMenu.this, createPost.class);
-        startActivity(intento);
-        overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
-    }
 
     private void posts() {
         Intent intento = new Intent(clientMenu.this, postsDisplay.class);
@@ -101,18 +93,6 @@ public class clientMenu extends AppCompatActivity {
         overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
     }
 
-    private void discover() { //Change to discover activity
-        Intent intento = new Intent(clientMenu.this, MainActivity.class);
-        startActivity(intento);
-        overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
-    }
-
-
-    private void profileAdmin() {//Profile admin
-        Intent intento = new Intent(clientMenu.this, AccountProfile.class);
-        startActivity(intento);
-        overridePendingTransition(R.anim.animacion, R.anim.animacioncontraria);
-    }
 
     private void logout() {
         Cookie.current_user_ID = null;

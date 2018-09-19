@@ -34,8 +34,6 @@ public class bandsDiscover extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bands_discover);
-
-
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         String typeLayout = (String) bundle.get("typeLayout");
@@ -66,7 +64,7 @@ public class bandsDiscover extends AppCompatActivity {
             return "select * from account where typeAccount = ?";//PARA ESTA
         }
         else {
-            return  "select * from account a inner join favorites f on(a.ID = f.clientID) where a.ID = ?";
+            return  "select b.ID, b.passW,b.typeAccount,b.picture,b.userName,b.userLastName from account b, account a inner join favorites f on(a.ID = f.clientID) where a.ID = ? and b.ID = f.bandID";
         }
     }
 
@@ -96,10 +94,10 @@ public class bandsDiscover extends AppCompatActivity {
         try {
             PreparedStatement pst;
             if(typeLayout.compareTo("B") == 0){
-                pst = conectionDB().prepareStatement( "select count(*) cont from account where typeAccount = 'B'" );
+                pst = conectionDB().prepareStatement( "select count(*) cont from account where typeAccount = ?" );
             }
             else{
-                pst =  conectionDB().prepareStatement("select (*) cont from account a inner join favorites f on(a.ID = f.clientID) where a.ID = ?");
+                pst =  conectionDB().prepareStatement("select count(*) cont from account b, account a inner join favorites f on(a.ID = f.clientID) where a.ID = ? and b.ID = f.bandID");
             }
             pst.setString(1,typeLayout);
             ResultSet rs = pst.executeQuery();
@@ -110,6 +108,14 @@ public class bandsDiscover extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),e.getMessage(), Toast.LENGTH_SHORT).show();
         }
         return postCount;
+    }
+
+    private String subString(String postContent){
+
+        if(postContent.length() > 100){
+            postContent = postContent.substring(0,100) ;
+        }
+        return postContent + "...";
     }
 
 
@@ -129,7 +135,7 @@ public class bandsDiscover extends AppCompatActivity {
                 bandName.setText( bandsForDiscover[pos].getName());
 
                 TextView placeEvent = (TextView) item.findViewById(R.id.descriptionBand);
-                placeEvent.setText( bandsForDiscover[pos].getLastName());
+                placeEvent.setText( subString(bandsForDiscover[pos].getLastName()));
 
                 ImageView detailsEvent = (ImageView) item.findViewById(R.id.profilePicBand);
                 detailsEvent.setImageResource( R.drawable.band );
